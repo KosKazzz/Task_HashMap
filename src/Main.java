@@ -40,12 +40,16 @@ public class Main {
             " Lectus sit amet est placerat in egestas erat. Nunc faucibus a pellentesque sit amet.";
 
     public static void main(String[] args) {
+        String textWithOutSpaces = text.replaceAll(" ", "").toLowerCase();
+        textWithOutSpaces = textWithOutSpaces.replaceAll(",","");
+        textWithOutSpaces = textWithOutSpaces.replaceAll("\\.","");
+        //System.out.println(textWithOutSpaces);
         Map<Character, Integer> charsInText = new HashMap<>();
-        for (int i = 0; i < text.length(); i++) {
-            if (charsInText.containsKey(text.charAt(i))) {
-                charsInText.put(text.charAt(i), charsInText.get(text.charAt(i)) + 1);
+        for (int i = 0; i < textWithOutSpaces.length(); i++) {
+            if (charsInText.containsKey(textWithOutSpaces.charAt(i))) {
+                charsInText.put(textWithOutSpaces.charAt(i), charsInText.get(textWithOutSpaces.charAt(i)) + 1);
             } else {
-                charsInText.put(text.charAt(i), 1);
+                charsInText.put(textWithOutSpaces.charAt(i), 1);
             }
         }
         int min = Integer.MAX_VALUE;
